@@ -1,9 +1,33 @@
-fruit_1 = {"fruit" => 'apple', "color" => 'red', "price" => 1.00}
-fruit_2 = {fruit: 'banana', color: 'yellow', price: 0.50}
-fruit_3 = {fruit: 'pear', color: 'green', price: 0.75}
 
-puts " The " + "#{fruit_2[:fruit]}" + " is the color " + "#{fruit_2[:color]}" + " and costs " + "#{fruit_2[:price]}"
+class Fruit
+  attr_reader :fruit, :color, :price
+  attr_writer :tax
+  def initialize(fruit, color, price)
+    @fruit = fruit
+    @color = color
+    @price = price
+  end
 
-puts " The " + "#{fruit_3[:fruit]}" + " is the color " + "#{fruit_3[:color]}" + " and costs " + "#{fruit_3[:price]}"
+  def print_info
+    puts "The #{fruit} is the color #{color} and costs #{price}"
+  end
 
-puts " The " + "#{fruit_1["fruit"]}" + " is the color " + "#{fruit_1["color"]}" + " and costs " + "#{fruit_1["price"]}"
+  def tax
+    @price = 0.08 + @price
+  end
+
+
+
+end
+
+  
+
+  fruit1 = Fruit.new("apple", "red", 1.00)
+  fruit2 = Fruit.new("banana", "yellow", 0.50)
+  fruit3 = Fruit.new("pear", "green", 0.75)
+
+fruit1.print_info
+p fruit1.tax
+
+
+
