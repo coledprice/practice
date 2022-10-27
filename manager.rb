@@ -36,14 +36,14 @@ class Manager < Employee
   end
 
   def give_all_raises
-    index = 0
-    while index < employees.length 
-      
+    @employees.each do |employee|
+      employee.give_annual_raise
+    end
     
   end
 
 end
-end
+
 
 manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
